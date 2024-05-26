@@ -18,8 +18,9 @@ class Update implements Runnable {
             Messages.addAll(messages);
             int lastId = -1;
             for (Message message : messages) {
-                if(message.getId() > Client.getLastId())
+                if(message.getId() > Client.getLastId() &&  !message.getAuhtor().equals(Client.getName()) ) {
                     System.out.println(message.getAuhtor() + " : " + message.getMessage());
+                }
                 lastId = message.getId();
             }
             Client.setLastId(lastId);

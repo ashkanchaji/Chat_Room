@@ -29,7 +29,7 @@ class SendMessage implements Runnable {
                 System.out.flush();
                 Socket socket = new Socket("127.0.0.1", 60001);
                 ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
-                outputStream.writeObject(new Message(name, nextline));
+                outputStream.writeObject(new Message(Client.getName(), nextline));
                 outputStream.close();
                 socket.close();
             }

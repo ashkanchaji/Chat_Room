@@ -6,11 +6,12 @@ import java.util.concurrent.Executors;
 
 public class Client {
     private static int lastId;
+    private static Scanner scanner = new Scanner(System.in);
+    private static String name;
     public static void main(String[] args) throws InterruptedException {
         lastId = 0;
-        Scanner scanner = new Scanner(System.in);
         System.out.println("enter your name : ");
-        String name = scanner.nextLine();
+        name = scanner.nextLine();
         System.out.println("Welcome to Chatromm \n please be polite \n for exit write \"/exit\" ");
         ExecutorService pool = Executors.newCachedThreadPool();
         pool.execute(new SendMessage(scanner,name));
@@ -26,6 +27,14 @@ public class Client {
 
     public static void setLastId(int lastId) {
         Client.lastId = lastId;
+    }
+
+    public static Scanner getScanner() {
+        return scanner;
+    }
+
+    public static String getName() {
+        return name;
     }
 }
 
